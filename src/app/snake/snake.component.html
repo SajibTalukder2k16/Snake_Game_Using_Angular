@@ -1,0 +1,18 @@
+<div class="body" fxLayout="row" fxLayoutAlign="center">
+    <div id="board">
+        <div class="food" [style.grid-column]="food_position.x" [style.grid-row]="food_position.y"></div>
+        <div class="head" [style.grid-column]="head_position.x" [style.grid-row]="head_position.y"></div>
+        <div *ngFor="let i of snakeArr | slice:1;"  class="snake" [style.grid-column]="i.x" [style.grid-row]="i.y"></div>
+    </div>
+    <div [id]="scoreBox">Score:{{score}}</div>
+    <div id="instructionBox">ArrowUp ↑,ArrowDown ↓,<br>ArrowLeft ←,ArrowRight →<br>To move the snake<br></div>
+    <div id="spaceBox">Press Space ⎵ to pause the game</div>
+    <button [id]="score_list" (click)="openDialog()" mat-fab >Top Scores</button>
+    <!-- <div class="head">
+
+        <div *ngIf="condition_for_snake_loop" >
+        <div *ngFor="let i of snakeArr" class="snake" [style.grid-column]="i.x" [style.grid-row]="i.y"></div>
+        </div>
+
+    </div> -->
+</div>

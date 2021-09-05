@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutGap="3.5%" >
+    <h2 fxLayoutAlign="center">Top 5 Scores</h2>
+    <div fxLayout="row" fxLayoutGap="25%" fxLayoutAlign="center">
+        <div fxLayout="column">Rank</div>
+        <div fxLayout="column">Scores</div>
+    </div>
+</div>
+<div fxLayout="column" fxLayoutGap="3.5%" *ngFor="let item of items|async; let i=index">
+    <div fxLayout="row" fxLayoutGap="30%" fxLayoutAlign="center">
+              <div fxLayout="column">{{i+1}}</div>
+              <div fxLayout="column">{{item.score}}</div>
+    </div>
+</div>
+
+
+
+  
+
+
+
