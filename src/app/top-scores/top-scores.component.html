@@ -1,3 +1,4 @@
+
 <div fxLayout="column" fxLayoutGap="3.5%" >
     <h2 fxLayoutAlign="center">Top 5 Scores</h2>
     <div fxLayout="row" fxLayoutGap="25%" fxLayoutAlign="center">
@@ -5,12 +6,16 @@
         <div fxLayout="column">Scores</div>
     </div>
 </div>
-<div fxLayout="column" fxLayoutGap="3.5%" *ngFor="let item of items|async; let i=index">
-    <div fxLayout="row" fxLayoutGap="30%" fxLayoutAlign="center">
-              <div fxLayout="column">{{i+1}}</div>
-              <div fxLayout="column">{{item.score}}</div>
+
+    <div fxLayout="column" fxLayoutGap="4.5%"  *ngFor="let number of [0,1,2,3,4]; let i=index">
+        <div fxLayout="row" fxLayoutGap="30%" fxLayoutAlign="center">
+                  <div fxLayout="column" fxLayoutAlign="start">{{i+1}}</div>
+                  <div fxLayout="column" fxLayoutAlign="end">{{items[i].score}}</div>
+        </div>
     </div>
-</div>
+
+
+
 
 
 

@@ -16,18 +16,19 @@ import { collection, addDoc } from "firebase/firestore";
   styleUrls: ['./top-scores.component.css'],
 })
 export class TopScoresComponent implements OnInit {
-  db = getFirestore();
 
-
-  items: Observable<any[]>;
+  items: any;
+  //items: Observable<any[]>;
   
 
-  constructor(@Inject(MAT_DIALOG_DATA)public data:Array<number>,firestore: AngularFirestore) {
+  constructor(@Inject(MAT_DIALOG_DATA)public data:Array<number>,private db: AngularFirestore,firestore: AngularFirestore) {
 
-    
-    this.items = firestore.collection('scores').valueChanges()
-
-    console.log("Sajib",this.items);
+    //this.items = firestore.collection('scores').valueChanges()
+    /*
+    firestore.collection('scores').valueChanges()._subscribe((result:any)=>{
+      console.log(result);
+    })
+    //console.log("Sajib",this.items);
     /*
     // Add a new document in collection "cities"
         firestore.collection("scores").doc("top6").set({
@@ -43,7 +44,23 @@ export class TopScoresComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.db.collection('scores').valueChanges().subscribe(val => {
+         console.log(val);
+         this.items=val;
+         this.foo();
+         //let ara = val;
+         //console
+    });
     
+    //console.log("Sajib ",out);
+  }
+  foo()
+  {
+    if(this.items?.length>0)
+    {
+      console.log(this.items)
+    }
   }
 
 }
