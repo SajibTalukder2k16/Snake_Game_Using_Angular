@@ -1,37 +1,33 @@
+<div class="player_body">
 
-    <mat-form-field hideRequiredMarker appearance="outline" >
-        <mat-label>Player's Name</mat-label>
-        <input matInput required/>
-        <mat-hint align="end">Submit your name to play</mat-hint>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Submit</button>
-
-    <!--
-        <mat-form-field  appearance="outline">
-            <mat-label>Outline form field</mat-label>
-            <input matInput placeholder="Placeholder">
-         
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        
-           
-            <mat-hint align="end">Enter and Submit to play</mat-hint>
-          </mat-form-field>
-    -->
-    <mat-card class="example-card">
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-content>
-          <p>This card has divider and indeterminate progress as footer</p>
-          
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
+  <mat-card class="example-card" style="text-align: center;top: 55px;">
+    <div class="temp">
+      <img mat-card-image src="/assets/image/bg.jpg">
+      <h2 class="temp1">Enter your name in the form</h2>
+    </div>
+    <br>
+    <mat-card-title ></mat-card-title>
+    <br>
+    <mat-card-content style="text-align: center;">
   
-<a routerLink="/snake">Enter</a>
+          <mat-form-field hideRequiredMarker appearance="outline"  >
+              <mat-label >Player's Name</mat-label>
+              <input style="align-content: center;" placeholder="Ex. Sajib" matInput required/>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint align="end">Submit your name to play</mat-hint>
+          </mat-form-field>
+          <br>
+          <br>
+          <button mat-raised-button color="primary">Submit</button>
+          <br><br><br>
+        <mat-progress-bar mode="indeterminate" style="width: 50%;left: 25%;"></mat-progress-bar>
+  
+  
+        <a routerLink="/snake">Enter</a>
+    </mat-card-content>
+  
+  </mat-card>
+  
+
+  </div>
+
