@@ -3,14 +3,24 @@
     margin: 0;
 }
 .body{
+    position:fixed;
     background-image: url("src/assets/image/bg.jpg");
     min-height: 100vh;
+    min-width: 100vw;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
 }
+.player{
+    position:fixed;
+    font-family:cursive;
+    color:whitesmoke;
+    font-size:x-large;
+    font-weight: bold;
+    margin-top: .5%;;
+}
 #board{
     margin-left: 10%;
-    margin-top: 2%;
+    margin-top: 3%;
     background: linear-gradient(rgb(23, 23, 187),white);
     width: 90vmin;
     height: 90vmin;
@@ -67,11 +77,16 @@
     text-align: center;
     background-color: chocolate;
 }
-.head{
+#head{
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-image: url("/assets/image/snake_head.jpg");
+    /*
     background: linear-gradient(red,yellow);
     border-style: solid;
     border-color:tomato;
     border-radius: 15%;
+    */
 }
 .snake{
     background:linear-gradient(rgb(0, 12, 0),purple);
@@ -94,4 +109,38 @@
     background-image: url("/assets/image/apple.png");
     
     
+}
+.food1{
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-image: url("/assets/image/burger.png");
+    /*
+    background:linear-gradient(rgb(214, 50, 50),rgb(251, 255, 23));
+    border-radius: 15%;
+    margin:5%;
+    border-style: solid;
+    border-color:rgb(255, 255, 255);
+    */
+}
+.food2{
+
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-image: url("/assets/image/poison.jpg");
+    /*
+    background:linear-gradient(rgb(184, 151, 151),rgb(209, 209, 196));
+    border-radius: 15%;
+    margin:5%;
+    border-style: solid;
+    border-color:rgb(240, 27, 27);
+    */
+}
+#score_info{
+    background-color: whitesmoke;
+    padding: 2%;
+    width: 25%;
+    border-radius: 2.5%;
+    position:absolute;
+    top:55%;
+    left: 1.5%;
 }

@@ -1,13 +1,47 @@
 <div class="body" fxLayout="row" fxLayoutAlign="center">
+    <div class="player">
+        You are playing as {{player}}
+    </div>
     <div id="board">
         <div class="food" [style.grid-column]="food_position.x" [style.grid-row]="food_position.y"></div>
-        <div class="head" [style.grid-column]="head_position.x" [style.grid-row]="head_position.y"></div>
+        <div class="food1" [style.grid-column]="food_position1.x" [style.grid-row]="food_position1.y"></div>
+        <div class="food2" [style.grid-column]="food_position2.x" [style.grid-row]="food_position2.y"></div>
+        <div [id]="head" [style.grid-column]="head_position.x" [style.grid-row]="head_position.y"></div>
         <div *ngFor="let i of snakeArr | slice:1;"  class="snake" [style.grid-column]="i.x" [style.grid-row]="i.y"></div>
     </div>
     <div [id]="scoreBox">Score:{{score}}</div>
     <div id="instructionBox">ArrowUp ↑,ArrowDown ↓,<br>ArrowLeft ←,ArrowRight →<br>To move the snake<br></div>
     <div id="spaceBox">Press Space ⎵ to pause the game</div>
-    <button [id]="score_list" (click)="openDialog()" mat-fab >Top Scores</button>
+    <div id="score_info" fxLayout="column" >
+        
+        <div fxLayout="column" fxlayoutAlign="space-between center" style="text-align: center;"><h3>Score Information</h3></div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="start"><b>Food</b></div>
+            <div fxLayout="column" fxLayoutAlign="center"><b>Speed</b></div>
+            <div fxLayout="column" fxLayoutAlign="end"><b>Score</b></div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="start">Apple</div>
+            <div fxLayout="column" fxLayoutAlign="start">+1x</div>
+            <div fxLayout="column" fxLayoutAlign="end">+1</div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="start">Burger</div>
+            <div fxLayout="column" fxLayoutAlign="start">+2.5x</div>
+            <div fxLayout="column" fxLayoutAlign="end">+2</div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="start">Danger</div>
+            <div fxLayout="column" fxLayoutAlign="start">-1x</div>
+            <div fxLayout="column" fxLayoutAlign="end">-3</div>
+        </div>
+    </div>
+    
+    <a [id]="score_list" (click)="openDialog()" mat-fab>Top Scores</a>
+    <!--
+        <button [id]="score_list" (click)="openDialog()" mat-fab >Top Scores</button>
+
+    -->
     <!-- <div class="head">
 
         <div *ngIf="condition_for_snake_loop" >

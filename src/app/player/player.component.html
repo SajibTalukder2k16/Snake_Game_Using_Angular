@@ -10,24 +10,24 @@
     <br>
     <mat-card-content style="text-align: center;">
   
-          <mat-form-field hideRequiredMarker appearance="outline"  >
+          <mat-form-field   hideRequiredMarker appearance="outline"  >
               <mat-label >Player's Name</mat-label>
-              <input style="align-content: center;" placeholder="Ex. Sajib" matInput required/>
+              <input ngModel ngNativeValidate style="align-content: center;" [(ngModel)]=player_name placeholder="Ex. Sajib" matInput required />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
               <mat-hint align="end">Submit your name to play</mat-hint>
           </mat-form-field>
           <br>
           <br>
-          <button mat-raised-button color="primary">Submit</button>
+          <button mat-raised-button color="primary" (click)="goToGame()" [disabled]="!player_name">Submit</button>
           <br><br><br>
         <mat-progress-bar mode="indeterminate" style="width: 50%;left: 25%;"></mat-progress-bar>
   
   
-        <a routerLink="/snake">Enter</a>
     </mat-card-content>
   
   </mat-card>
   
 
   </div>
+  
 

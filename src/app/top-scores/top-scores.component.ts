@@ -46,7 +46,7 @@ export class TopScoresComponent implements OnInit {
   ngOnInit(): void {
 
     this.db.collection('scores').valueChanges().subscribe(val => {
-         console.log(val);
+         //console.log("Talukder",val);
          this.items=val;
          this.foo();
          //let ara = val;
@@ -59,7 +59,7 @@ export class TopScoresComponent implements OnInit {
   {
     if(this.items?.length>0)
     {
-      console.log(this.items)
+      //console.log(this.items)
     }
   }
 

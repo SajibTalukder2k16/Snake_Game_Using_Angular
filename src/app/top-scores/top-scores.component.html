@@ -1,15 +1,17 @@
 
-<div fxLayout="column" fxLayoutGap="3.5%" >
+<div fxLayout="column" >
     <h2 fxLayoutAlign="center">Top 5 Scores</h2>
-    <div fxLayout="row" fxLayoutGap="25%" fxLayoutAlign="center">
-        <div fxLayout="column">Rank</div>
-        <div fxLayout="column">Scores</div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="column" fxLayoutAlign="start">Rank</div>
+        <div fxLayout="column" fxLayoutAlign="center">Name</div>
+        <div fxLayout="column" fxLayoutAlign="end">Scores</div>
     </div>
 </div>
 
-    <div fxLayout="column" fxLayoutGap="4.5%"  *ngFor="let number of [0,1,2,3,4]; let i=index">
-        <div fxLayout="row" fxLayoutGap="30%" fxLayoutAlign="center">
+    <div fxLayout="column"   *ngFor="let number of [0,1,2,3,4]; let i=index">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
                   <div fxLayout="column" fxLayoutAlign="start">{{i+1}}</div>
+                  <div fxLayout="column" fxLayoutAlign="center">{{items[i].name}}</div>
                   <div fxLayout="column" fxLayoutAlign="end">{{items[i].score}}</div>
         </div>
     </div>
