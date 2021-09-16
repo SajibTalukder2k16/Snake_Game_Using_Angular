@@ -11,7 +11,11 @@ import { Input } from '@angular/core';
 })
 export class SnakeComponent implements OnInit {
 
-  
+  foodSound = new Audio('/assets/audio/eating.wav')
+  gameOverSound = new Audio('/assets/audio/game_over.wav')
+  moveSound = new Audio('/assets/audio/direction_change.wav')
+  musicSound = new Audio('/assets/audio/bg_music.mp3')
+  poisonSound = new Audio('/assets/audio/poison.wav')
   last_move=""
   inputDir ={x:0,y:0}
   score=0;
@@ -84,11 +88,6 @@ export class SnakeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    //this.readTextFile();
-    //this.writeOnLocalStorage();
-    //this.readOnLocalStorage();
-    //this.keysEvent();
-    
     this.gameEngine();
   }
   openDialog()
@@ -240,7 +239,7 @@ s.val.push(num)
         //own
         if(this.head_position.x===this.snakeArr[i].x && this.head_position.y===this.snakeArr[i].y)
         {
-            //gameOverSound.play();
+            this.gameOverSound.play();
             //console.log("owwwww");
             this.notEaten=true;
             return true;
@@ -250,7 +249,7 @@ s.val.push(num)
     //console.log(sArr[0].x,sArr[0].y);
     if(this.head_position.x<=1 || this.head_position.x>=18 || this.head_position.y<=1 ||this.head_position.y>=18)
     {
-        //gameOverSound.play();
+        this.gameOverSound.play();
         //console.log("true");
         this.notEaten=true;
         return true;
@@ -270,6 +269,9 @@ gameEngine()
     this.condition_for_snake_loop=this.snakeArr.length>1
     if(this.isCollide())
     {
+      setTimeout(() => {
+        
+      }, 1000);
       let ara=[{sc:this.val[0].score,nm:this.val[0].name},{sc:this.val[1].score,nm:this.val[1].name},{sc:this.val[2].score,nm:this.val[2].name},{sc:this.val[3].score,nm:this.val[3].name},{sc:this.val[4].score,nm:this.val[4].name}]
       ara.push({sc:this.score,nm:this.player});
       for (let i = 0; i < 6; i++) 
@@ -325,6 +327,7 @@ gameEngine()
 ///eating food0
     if(this.check_position(this.food_position,this.head_position))
     {
+        this.foodSound.play();
         this.score+=1;
         this.snakeArr.push(this.previous_position);
         //let temp_x=Math.round(this.a+(this.b-this.a)*Math.random())
@@ -363,6 +366,7 @@ gameEngine()
     //eating food1
     if(this.check_position(this.food_position1,this.head_position))
     {
+      this.foodSound.play();
         this.score+=2;
         this.snakeArr.push(this.previous_position);
         //let temp_x=Math.round(this.a+(this.b-this.a)*Math.random())
@@ -402,6 +406,8 @@ gameEngine()
 
     if(this.check_position(this.food_position2,this.head_position))
     {
+      //this.foodSound.play();
+      this.poisonSound.play();
         this.score-=3;
         this.snakeArr.push(this.previous_position);
         //let temp_x=Math.round(this.a+(this.b-this.a)*Math.random())
