@@ -18,6 +18,15 @@
     font-weight: bold;
     margin-top: .5%;;
 }
+.counter{
+    position:fixed;
+    font-family:cursive;
+    color:whitesmoke;
+    font-size:x-large;
+    font-weight: bold;
+    margin-top: 1.7%;;
+    left: 5%;
+}
 #board{
     margin-left: 10%;
     margin-top: 3%;

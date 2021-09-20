@@ -44,6 +44,7 @@ export class SnakeComponent implements OnInit {
   key_work_done=true;
   speed = 230;
   player:any
+  count:any;
   //items:Observable<any[]>
   check_position(x:any,y:any)
   {
@@ -85,6 +86,10 @@ export class SnakeComponent implements OnInit {
       //let ara = val;
       //console
  });
+  this.db.collection('play_count').valueChanges().subscribe(val =>{
+    this.count=val;
+    console.log(this.count);
+  })
    }
 
   ngOnInit(): void {
@@ -269,6 +274,12 @@ gameEngine()
     this.condition_for_snake_loop=this.snakeArr.length>1
     if(this.isCollide())
     {
+      this.count[0].cnt++;
+
+      this.db.collection("play_count").doc('count').set({
+        //name: "Talukder",
+        cnt:this.count[0].cnt,
+      })
       setTimeout(() => {
         
       }, 1000);
@@ -295,7 +306,7 @@ gameEngine()
         this.val[i].score =ara[i].sc;
         this.val[i].name=ara[i].nm;
         let temp_doc="top"+(i+1).toString();
-        console.log(temp_doc)
+        //console.log(temp_doc)
         this.db.collection("scores").doc(temp_doc).set({
           //name: "Talukder",
           name:this.val[i].name,
